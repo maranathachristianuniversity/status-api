@@ -1,9 +1,9 @@
 <?php return [
-    'dbType' => $_SERVER['DB_TYPE'],
-    'host' => $_SERVER['DB_HOST'],
-    'user' => $_SERVER['DB_USER'],
-    'pass' => $_SERVER['DB_PASS'],
-    'dbName' => $_SERVER['DB_NAME'],
-    'port' => $_SERVER['DB_PORT'],
+    'dbType' => 'mysql',
+    'host' => '10.15.104.99',
+    'user' => 'root',
+    'pass' => 'root',
+    'dbName' => 'pagestatus',
+    'port' => 3306,
     'cache' => false,
 ];

@@ -17,9 +17,10 @@ class notify extends Service
 {
     /**
      * @param string $id1
+     * @return mixed
      * @throws Exception
      */
-    public function notify($id1 = '')
+    public function notifyerror($id1 = '')
     {
         if ($id1 === '') {
             throw new Exception("ID Data required");
@@ -39,13 +40,25 @@ class notify extends Service
         $param = Request::JsonBody();
 
         if (sizeof($isExist) > 0) {
-            $healthstatus = new \plugins\model\healthstatus($isExist[0]['id']);
+            if ($param['attachments'] === '' || $param['attachments'] === null) {
+                throw new Exception("Attachments kosong");
+            }
 
             $healthstatus = new \plugins\model\healthstatus($isExist[0]['id']);
             $healthstatus->problem = json_encode($param['attachments']);
+            $healthstatus = new \plugins\model\healthstatus($isExist[0]['id']);
             $healthstatus->iteration = $healthstatus->iteration + 1;
             $healthstatus->modified = $this->GetServerDateTime();
             $healthstatus->modify();
+
+            $health = new \plugins\model\health($healthstatus->idhealth);
+            if ($healthstatus->iteration > 10) {
+                $health->healthstatus = 'warning';
+            }
+            if ($healthstatus->iteration > 100) {
+                $health->healthstatus = 'error';
+            }
+            $health->modify();
 
             $data['healthstatus'] = array(
                 "id" => $healthstatus->id,
@@ -55,6 +68,10 @@ class notify extends Service
                 "isresolved" => $healthstatus->isresolved
             );
         } else {
+            if ($param['attachments'] === '' || $param['attachments'] === null) {
+                throw new Exception("Attachments kosong");
+            }
+
             $healthstatus = new \plugins\model\healthstatus();
             $healthstatus->idhealth = $idhealth;
             $healthstatus->problem = json_encode($param['attachments']);

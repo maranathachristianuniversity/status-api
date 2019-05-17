@@ -86,7 +86,7 @@
         ],
         "notify/{?}" => [
             "controller" => "notify",
-            "function" => "notify",
+            "function" => "notifyerror",
             "accept" => [
                 "GET",
                 "POST"

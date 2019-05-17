@@ -29,7 +29,8 @@ class HealthModel extends health implements ModelContracts
     {
         $sql = "SELECT id, appidentifier, displayname, healthstatus, description, remark
                 FROM health
-                WHERE dflag = 0";
+                WHERE dflag = 0
+                ORDER BY id ASC";
         return DBI::Prepare($sql)->GetData();
     }
 
@@ -43,7 +44,8 @@ class HealthModel extends health implements ModelContracts
         $sql = "SELECT id, appidentifier, displayname, healthstatus, description, remark
                 FROM health
                 WHERE dflag = 0
-                AND id = @1";
+                AND id = @1
+                ORDER BY id ASC";
         return DBI::Prepare($sql)->FirstRow($id);
     }
 
@@ -57,7 +59,8 @@ class HealthModel extends health implements ModelContracts
         $sql = "SELECT id, appidentifier, displayname, healthstatus, description, remark
                 FROM health
                 WHERE dflag = 0
-                AND id = @1";
+                AND id = @1
+                ORDER BY id ASC";
         $data = DBI::Prepare($sql)->GetData($id);
 
         if (sizeof($data) > 0) {
@@ -78,7 +81,8 @@ class HealthModel extends health implements ModelContracts
         $sql = sprintf("SELECT id, appidentifier, displayname, healthstatus, description, remark
                                 FROM health
                                 WHERE dflag = 0
-                                AND %s = @1", $column);
+                                AND %s = @1
+                                ORDER BY id ASC", $column);
         $data = DBI::Prepare($sql)->GetData($value);
 
         if (sizeof($data) > 0) {
@@ -163,7 +167,8 @@ class HealthModel extends health implements ModelContracts
         }
         $sql = sprintf("SELECT id, appidentifier, displayname, healthstatus, description, remark
                                 FROM health
-                                WHERE dflag = 0 %s", $strings);
+                                WHERE dflag = 0 %s
+                                ORDER BY id ASC", $strings);
         return DBI::Prepare($sql)->GetData();
     }
 
@@ -190,7 +195,8 @@ class HealthModel extends health implements ModelContracts
         }
         $sql = sprintf("SELECT id, appidentifier, displayname, healthstatus, description, remark
                                 FROM health
-                                WHERE dflag = 0 %s", $strings);
+                                WHERE dflag = 0 %s
+                                ORDER BY id ASC", $strings);
         $table->SetQuery($sql);
 
         return $table->GetDataTables(function ($result) {
