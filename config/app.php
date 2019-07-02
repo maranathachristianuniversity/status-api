@@ -1,6 +1,6 @@
 <?php return [
     'const' => array(
-        'OWNER' => 'puko'
+        'OWNER' => ''
     ),
     'cache' => [
         'identifier' => 'pukocache',
