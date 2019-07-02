@@ -1,25 +1,26 @@
 <?php return [
-    'const' => [
-        'OWNER' => 'Puko Framework',
-    ],
+    'const' => array(
+        'OWNER' => 'puko'
+    ),
     'cache' => [
+        'identifier' => 'pukocache',
         'kind' => 'MEMCACHED',
-        'expired' => 100,
+        'expired' => 10,
         'host' => 'localhost',
         'port' => 11211,
     ],
     'logs' => [
         'slack' => [
-            'url' => 'https://hooks.slack.com/services/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',
+            'url' => $_SERVER['SLACK'],
             'secure' => '',
-            'username' => 'pagestatus',
-            'active' => false
+            'username' => 'status-api',
+            'active' => true
         ],
         'hook' => [
-            'url' => 'http://10.15.104.99:9102/notify/pagestatus',
+            'url' => $_SERVER['HOOK'],
             'secure' => '',
-            'username' => 'pagestatus',
-            'active' => false
+            'username' => 'status-api',
+            'active' => true
         ]
     ]
 ];

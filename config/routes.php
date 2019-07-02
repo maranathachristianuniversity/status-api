@@ -1,5 +1,5 @@
 <?php $routes = [
-    "page" => [
+    "router" => [
         "health/create" => [
             "controller" => "health",
             "function" => "create",
