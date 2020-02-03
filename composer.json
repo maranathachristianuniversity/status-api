@@ -8,7 +8,7 @@
     "ext-json": "*"
   },
   "require-dev": {
-    "puko/console": "0.1.0"
+    "puko/console": "dev-master"
   },
   "minimum-stability": "dev",
   "autoload": {
