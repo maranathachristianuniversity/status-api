@@ -29,8 +29,11 @@ class notify extends Service
         $health = HealthModel::SearchData(array(
             'appidentifier' => $id1
         ));
-
-        $idhealth = $health['0']['id'];
+        if (sizeof($health) === 0) {
+            return [];
+        }
+        
+        $idhealth = $health[0]['id'];
 
         $isExist = HealthStatusModel::SearchData(array(
             "s.idhealth" => $idhealth,
