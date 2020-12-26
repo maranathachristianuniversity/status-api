@@ -53,7 +53,8 @@ class IncidentsModel extends incidents implements ModelContracts
                 LEFT JOIN health h
                 ON s.idhealth = h.id
                 WHERE i.dflag = 0
-                AND i.id = @1";
+                AND i.id = @1
+                ORDER BY i.postdate DESC";
         return DBI::Prepare($sql)->FirstRow($id);
     }
 
@@ -72,7 +73,8 @@ class IncidentsModel extends incidents implements ModelContracts
                 LEFT JOIN health h
                 ON s.idhealth = h.id
                 WHERE i.dflag = 0
-                AND i.id = @1";
+                AND i.id = @1
+                ORDER BY i.postdate DESC";
         $data = DBI::Prepare($sql)->GetData($id);
 
         if (sizeof($data) > 0) {
@@ -98,7 +100,8 @@ class IncidentsModel extends incidents implements ModelContracts
                                 LEFT JOIN health h
                                 ON s.idhealth = h.id
                                 WHERE i.dflag = 0
-                                AND %s = @1", $column);
+                                AND %s = @1
+                                ORDER BY i.postdate DESC", $column);
         $data = DBI::Prepare($sql)->GetData($value);
 
         if (sizeof($data) > 0) {
@@ -193,7 +196,8 @@ class IncidentsModel extends incidents implements ModelContracts
                                 ON i.idhealthstatus = s.id
                                 LEFT JOIN health h
                                 ON s.idhealth = h.id
-                                WHERE i.dflag = 0 %s", $strings);
+                                WHERE i.dflag = 0 %s
+                                ORDER BY i.postdate DESC", $strings);
         return DBI::Prepare($sql)->GetData();
     }
 
@@ -229,7 +233,8 @@ class IncidentsModel extends incidents implements ModelContracts
                                 ON i.idhealthstatus = s.id
                                 LEFT JOIN health h
                                 ON s.idhealth = h.id
-                                WHERE i.dflag = 0 %s", $strings);
+                                WHERE i.dflag = 0 %s
+                                ORDER BY i.postdate DESC", $strings);
         $table->SetQuery($sql);
 
         return $table->GetDataTables(function ($result) {
