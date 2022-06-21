@@ -3,11 +3,9 @@
         'OWNER' => ''
     ),
     'cache' => [
-        'identifier' => 'pukocache',
-        'kind' => 'MEMCACHED',
-        'expired' => 10,
-        'host' => 'localhost',
-        'port' => 11211,
+        'kind'    => 'MEMCACHED',
+        'host'    => 'localhost',
+        'port'    => 11211
     ],
     'logs' => [
         'slack' => [

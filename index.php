@@ -11,6 +11,8 @@ use pukoframework\config\Factory;
 
 require 'vendor/autoload.php';
 
+date_default_timezone_set("Asia/Jakarta");
+
 /*
  *---------------------------------------------------------------
  * APP BASE URL
@@ -33,20 +35,20 @@ if (isset($_SERVER['HTTPS'])) {
     }
 }
 
-$factory = array(
-    'base' => ($protocol . "://" . $_SERVER['HTTP_HOST'] . "/"),
-    'root' => __DIR__,
-    'start' => microtime(true)
-);
-
-$fo = new Factory($factory);
-
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true ");
 header("Access-Control-Allow-Methods: OPTIONS, GET, POST");
 header("Access-Control-Allow-Headers: Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Authorization, X-Permissions");
 
+$factory = [
+    'cli_param'   => null,
+    'environment' => $_SERVER['ENVIRONMENT'], //possible value: PROD, DEV, MAINTENANCE
+    'base'        => ($protocol.'://'.$_SERVER['HTTP_HOST'].'/'),
+    'root'        => __DIR__,
+    'start'       => microtime(true),
+];
+$fo = new Factory($factory);
+
 //Initialize framework object
 $framework = new Framework($fo);
-//Start framework
 $framework->Start();
