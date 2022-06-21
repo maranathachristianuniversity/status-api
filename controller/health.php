@@ -14,6 +14,7 @@ use pukoframework\Request;
  */
 class health extends Service
 {
+
     use UserBearerData;
 
     /**

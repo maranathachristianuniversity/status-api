@@ -42,9 +42,7 @@ class MicroserviceAuthenticator implements Auth
      * @param $id
      * @param $permission
      * @return mixed
-     * @throws \Exception
-     * @throws \pukoframework\cache\CacheException
-     * @throws \pukoframework\peh\PukoException
+     * @throws Exception
      */
     public function GetLoginData($id, $permission)
     {

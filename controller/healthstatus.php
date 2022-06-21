@@ -4,7 +4,6 @@ namespace controller;
 
 use Exception;
 use model\HealthModel;
-use model\HealthStatusModel;
 use plugins\UserBearerData;
 use pukoframework\middleware\Service;
 use pukoframework\Request;
@@ -16,6 +15,7 @@ use pukoframework\Request;
  */
 class healthstatus extends Service
 {
+
     use UserBearerData;
 
     /**
@@ -73,8 +73,6 @@ class healthstatus extends Service
         }
 
         $idhealth = Request::Post('idhealth', "");
-        //$iteration = Request::Post('iteration', "");
-        //$problem = Request::Post('problem', "");
         $isresolved = Request::Post('isresolved', "");
 
         if ($idhealth === '') {

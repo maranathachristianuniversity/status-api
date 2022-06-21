@@ -8,6 +8,7 @@
 
 namespace model;
 
+use Exception;
 use DateTime;
 use plugins\model\healthstatus;
 use pukoframework\pda\DBI;
@@ -23,7 +24,7 @@ class HealthStatusModel extends healthstatus implements ModelContracts
 
     /**
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetData()
     {
@@ -38,7 +39,7 @@ class HealthStatusModel extends healthstatus implements ModelContracts
     /**
      * @param $id
      * @return array|mixed|null
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetById($id)
     {
@@ -54,7 +55,7 @@ class HealthStatusModel extends healthstatus implements ModelContracts
     /**
      * @param $id
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public static function IsExists($id)
     {
@@ -76,7 +77,7 @@ class HealthStatusModel extends healthstatus implements ModelContracts
      * @param $column
      * @param $value
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public static function IsExistsWhere($column, $value)
     {
@@ -96,7 +97,7 @@ class HealthStatusModel extends healthstatus implements ModelContracts
 
     /**
      * @return int
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetDataSize()
     {
@@ -109,7 +110,7 @@ class HealthStatusModel extends healthstatus implements ModelContracts
     /**
      * @param array $condition
      * @return int|mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetDataSizeWhere($condition = array())
     {
@@ -136,7 +137,7 @@ class HealthStatusModel extends healthstatus implements ModelContracts
     /**
      * @param $id
      * @return DateTime|mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetCreated($id)
     {
@@ -145,7 +146,7 @@ class HealthStatusModel extends healthstatus implements ModelContracts
 
     /**
      * @return mixed|null
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetLastData()
     {
@@ -161,7 +162,7 @@ class HealthStatusModel extends healthstatus implements ModelContracts
     /**
      * @param array $keyword
      * @return array|mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public static function SearchData($keyword = array())
     {
@@ -180,8 +181,7 @@ class HealthStatusModel extends healthstatus implements ModelContracts
     /**
      * @param array $condition
      * @return array|mixed
-     * @throws \pukoframework\cache\CacheException
-     * @throws \pukoframework\peh\PukoException
+     * @throws Exception
      */
     public static function GetDataTable($condition = array())
     {

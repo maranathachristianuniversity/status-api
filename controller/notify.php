@@ -15,6 +15,7 @@ use pukoframework\Request;
  */
 class notify extends Service
 {
+
     /**
      * @param string $id1
      * @return mixed
@@ -32,7 +33,7 @@ class notify extends Service
         if (sizeof($health) === 0) {
             return [];
         }
-        
+
         $idhealth = $health[0]['id'];
 
         $isExist = HealthStatusModel::SearchData(array(

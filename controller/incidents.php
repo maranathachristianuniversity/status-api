@@ -5,7 +5,6 @@ namespace controller;
 use DateTime;
 use Exception;
 use model\HealthStatusModel;
-use model\IncidentsModel;
 use plugins\UserBearerData;
 use pukoframework\middleware\Service;
 use pukoframework\Request;
@@ -17,6 +16,7 @@ use pukoframework\Request;
  */
 class incidents extends Service
 {
+
     use UserBearerData;
 
     /**

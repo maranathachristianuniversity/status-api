@@ -8,6 +8,7 @@
 
 namespace model;
 
+use Exception;
 use DateTime;
 use plugins\model\incidents;
 use pukoframework\pda\DBI;
@@ -23,7 +24,7 @@ class IncidentsModel extends incidents implements ModelContracts
 
     /**
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetData()
     {
@@ -41,7 +42,7 @@ class IncidentsModel extends incidents implements ModelContracts
     /**
      * @param $id
      * @return array|mixed|null
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetById($id)
     {
@@ -61,7 +62,7 @@ class IncidentsModel extends incidents implements ModelContracts
     /**
      * @param $id
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public static function IsExists($id)
     {
@@ -88,7 +89,7 @@ class IncidentsModel extends incidents implements ModelContracts
      * @param $column
      * @param $value
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public static function IsExistsWhere($column, $value)
     {
@@ -113,7 +114,7 @@ class IncidentsModel extends incidents implements ModelContracts
 
     /**
      * @return int
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetDataSize()
     {
@@ -126,7 +127,7 @@ class IncidentsModel extends incidents implements ModelContracts
     /**
      * @param array $condition
      * @return int|mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetDataSizeWhere($condition = array())
     {
@@ -153,7 +154,7 @@ class IncidentsModel extends incidents implements ModelContracts
     /**
      * @param $id
      * @return DateTime|mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetCreated($id)
     {
@@ -162,7 +163,7 @@ class IncidentsModel extends incidents implements ModelContracts
 
     /**
      * @return mixed|null
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetLastData()
     {
@@ -181,7 +182,7 @@ class IncidentsModel extends incidents implements ModelContracts
     /**
      * @param array $keyword
      * @return array|mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public static function SearchData($keyword = array())
     {
@@ -203,8 +204,8 @@ class IncidentsModel extends incidents implements ModelContracts
 
     /**
      * @param array $condition
-     * @return array|mixed
-     * @throws \pukoframework\peh\PukoException
+     * @return array
+     * @throws Exception
      */
     public static function GetDataTable($condition = array())
     {

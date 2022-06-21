@@ -8,6 +8,7 @@
 
 namespace model;
 
+use Exception;
 use DateTime;
 use plugins\model\storyboards;
 use pukoframework\pda\DBI;
@@ -23,8 +24,7 @@ class StoryBoardsModel extends storyboards implements ModelContracts
 
     /**
      * @return array
-     * @throws \pukoframework\cache\CacheException
-     * @throws \pukoframework\peh\PukoException
+     * @throws Exception
      */
     public static function GetData()
     {
@@ -37,7 +37,7 @@ class StoryBoardsModel extends storyboards implements ModelContracts
     /**
      * @param $id
      * @return array|mixed|null
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetById($id)
     {
@@ -51,8 +51,7 @@ class StoryBoardsModel extends storyboards implements ModelContracts
     /**
      * @param $id
      * @return bool
-     * @throws \pukoframework\cache\CacheException
-     * @throws \pukoframework\peh\PukoException
+     * @throws Exception
      */
     public static function IsExists($id)
     {
@@ -73,8 +72,7 @@ class StoryBoardsModel extends storyboards implements ModelContracts
      * @param $column
      * @param $value
      * @return bool
-     * @throws \pukoframework\cache\CacheException
-     * @throws \pukoframework\peh\PukoException
+     * @throws Exception
      */
     public static function IsExistsWhere($column, $value)
     {
@@ -93,7 +91,7 @@ class StoryBoardsModel extends storyboards implements ModelContracts
 
     /**
      * @return int
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetDataSize()
     {
@@ -106,7 +104,7 @@ class StoryBoardsModel extends storyboards implements ModelContracts
     /**
      * @param array $condition
      * @return int|mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetDataSizeWhere($condition = array())
     {
@@ -133,7 +131,7 @@ class StoryBoardsModel extends storyboards implements ModelContracts
     /**
      * @param $id
      * @return DateTime|mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetCreated($id)
     {
@@ -142,7 +140,7 @@ class StoryBoardsModel extends storyboards implements ModelContracts
 
     /**
      * @return mixed|null
-     * @throws \Exception
+     * @throws Exception
      */
     public static function GetLastData()
     {
@@ -156,8 +154,7 @@ class StoryBoardsModel extends storyboards implements ModelContracts
     /**
      * @param array $keyword
      * @return array|mixed
-     * @throws \pukoframework\cache\CacheException
-     * @throws \pukoframework\peh\PukoException
+     * @throws Exception
      */
     public static function SearchData($keyword = array())
     {
@@ -174,8 +171,7 @@ class StoryBoardsModel extends storyboards implements ModelContracts
     /**
      * @param array $condition
      * @return array|mixed
-     * @throws \pukoframework\cache\CacheException
-     * @throws \pukoframework\peh\PukoException
+     * @throws Exception
      */
     public static function GetDataTable($condition = array())
     {

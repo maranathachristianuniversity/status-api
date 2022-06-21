@@ -3,7 +3,6 @@
 namespace controller;
 
 use Exception;
-use model\StoryBoardsModel;
 use plugins\UserBearerData;
 use pukoframework\middleware\Service;
 use pukoframework\Request;
