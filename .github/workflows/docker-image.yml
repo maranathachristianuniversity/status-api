@@ -17,7 +17,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v2
       - name: create image from repository
-        run: docker build -t ghcr.io/maranathachristianuniversity/status-api .
+        run: docker build -t ghcr.io/maranathachristianuniversity/status-api:${{ github.ref_name }} .
       - name: push image to GitHub Container Registry
         run: docker push ghcr.io/maranathachristianuniversity/status-api:${{ github.ref_name }}
 
