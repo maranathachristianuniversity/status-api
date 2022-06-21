@@ -2,8 +2,6 @@ name: Docker Image CI
 
 on:
   push:
-    branches:
-      - master
     tags:
       - '*'
 
@@ -21,5 +19,5 @@ jobs:
       - name: create image from repository
         run: docker build -t ghcr.io/maranathachristianuniversity/status-api .
       - name: push image to GitHub Container Registry
-        run: docker push ghcr.io/maranathachristianuniversity/status-api:latest
+        run: docker push ghcr.io/maranathachristianuniversity/status-api:${{ github.ref_name }}
 
