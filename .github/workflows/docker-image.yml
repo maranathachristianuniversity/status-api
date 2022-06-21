@@ -15,11 +15,11 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
+          username: maranathachristianuniversity
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v2
       - name: create image from repository
-        run: docker build -t ghcr.io/${{ github.actor }}/status-api .
+        run: docker build -t ghcr.io/maranathachristianuniversity/status-api .
       - name: push image to GitHub Container Registry
-        run: docker push ghcr.io/${{ github.actor }}/status-api:latest
+        run: docker push ghcr.io/maranathachristianuniversity/status-api:latest
 
